@@ -128,7 +128,11 @@ public class Anchors {
     public int closeTo(int section, int point) {
         int distInf = AnchorHelper.distance(point, anchorHelper.pos(section));
         int distSup = AnchorHelper.distance(point, anchorHelper.next(section));
-        if (distInf < distSup) {
+        /*if (distInf < distSup) {
+            return anchorHelper.pos(section);
+        }
+        return anchorHelper.next(section);*/
+        if (distInf < 16 * Resources.getSystem().getDisplayMetrics().density) {
             return anchorHelper.pos(section);
         }
         return anchorHelper.next(section);
